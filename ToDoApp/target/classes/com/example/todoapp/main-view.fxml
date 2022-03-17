@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.todoapp.Controller">
+
+    <left>
+        <VBox>
+            <Label text="This is left side"/>
+            <HBox>
+                <TextField fx:id="newTaskNameField"/>
+                <Button text="Add" onAction="#addNewTask"/>
+            </HBox>
+            <TextArea fx:id="newTaskDescriptionField"/> <!-- optional -->
+            <DatePicker fx:id="newTaskDeadlineDateField"/>
+
+            <fx:define>
+                <ToggleGroup fx:id="buttonGroup"/>
+            </fx:define>
+
+            <ToggleButton fx:id="today" text="Today" toggleGroup="$buttonGroup"/>
+            <ToggleButton fx:id="upcoming" text="Upcoming" toggleGroup="$buttonGroup"/>
+            <ToggleButton fx:id="overdue" text="Overdue" toggleGroup="$buttonGroup"/>
+            <ToggleButton fx:id="inbox" text="Inbox" toggleGroup="$buttonGroup"/>
+
+        </VBox>
+    </left>
+
+    <center>
+        <VBox style="--fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;">
+            <Label text="Today's tasks"/>
+            <ListView fx:id="toDoItems"/>
+        </VBox>
+    </center>
+
+</BorderPane>
